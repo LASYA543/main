@@ -45,6 +45,9 @@ int main(int argc, char const* argv[])
         return -1;
 
     }
+    else {
+	    cout<<"Socket created successfully"<<endl;
+    }
     serv_addr.sin_family = AF_INET;
 
     serv_addr.sin_port = htons(PORT);
@@ -62,7 +65,9 @@ int main(int argc, char const* argv[])
         return -1;
 
     }
-
+    else {
+	    cout<<"Binding successful"<<endl;
+    }
 
     if ((client_fd
 
@@ -75,6 +80,10 @@ int main(int argc, char const* argv[])
         printf("\nConnection Failed \n");
         return -1;
  }
+    else {
+	    cout<<"connnection successful"<<endl;
+    }
+      
 travel t;
 
 
