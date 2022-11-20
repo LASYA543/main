@@ -106,7 +106,9 @@ int opt = 1;
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+//#include <headers.cpp>
 using namespace std;
+
 #define PORT 8080
 #define MAX_length 30
 char admin[MAX_length]="Tour.txt";
@@ -129,7 +131,7 @@ int opt = 1;
 
     char buffer[1024] = { 0 };
 
-   // char* hello = "Hello from server";
+   char* hello = "Hello from server";
 
 
     // Creating socket file descriptor
@@ -139,6 +141,9 @@ int opt = 1;
 
         exit(EXIT_FAILURE);
 
+    }
+    else {
+	    cout<<"socket created succesfully"<<endl;
     }
 
 
@@ -170,12 +175,19 @@ int opt = 1;
 
         exit(EXIT_FAILURE);
   }
+    else {
+	    cout<<"binding succesful"<<endl;
+    }
 
     if (listen(server_fd, 3) < 0) {
 
         perror("listen");
         exit(EXIT_FAILURE);
 
+    }
+    else 
+    { 
+	    cout<<"listening for client"<<endl;
     }
 
 
@@ -192,10 +204,15 @@ int opt = 1;
         exit(EXIT_FAILURE);
 
     }
+    else {
+	    cout<<"connection accepted"<<endl;
+    }
 
  valread = read(new_socket, buffer, 1024);
 
-    cout<<"\n buffer";
+   // cout<<"\n buffer";
+    send(new_socket, hello, strlen(buffer), 0);
+    // cout<<"connection succesful/n"<<endl;
 
      close(new_socket);
 
