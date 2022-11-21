@@ -103,6 +103,7 @@ int opt = 1;
     #include <netinet/in.h>
 #include <iostream>
 #include <stdlib.h>
+//#include "Logger.h"
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -122,7 +123,8 @@ struct tour{
 int main(int argc, char const* argv[])
 {
 
-    int server_fd, new_socket, valread;
+	int count=0;
+    int server_fd, client_fd, new_socket, valread;
 
     struct sockaddr_in address;
 int opt = 1;
@@ -205,14 +207,24 @@ int opt = 1;
 
     }
     else {
+	    read(server_fd,&buffer,1024);
+	    cout<<buffer<<endl;
 	    cout<<"connection accepted"<<endl;
     }
 
  valread = read(new_socket, buffer, 1024);
 
    // cout<<"\n buffer";
-    send(new_socket, hello, strlen(buffer), 0);
-    // cout<<"connection succesful/n"<<endl;
+  recv(client_fd, &count, sizeof(count),0 );
+/* if (count == 1)
+ {
+	 cout<<"login succesful";
+ }
+*/
+	// cout<<"login failed";
+     // recv(client_fd, buffer, sizeof(buffer),0 );
+      // cout<<valread;
+     cout<<"login succesful/n"<<endl;
 
      close(new_socket);
 
