@@ -21,5 +21,6 @@ class travel{
                     void user_display();
                     void user_search();
                     void user_cancel();
+		    
 };
 
