@@ -76,7 +76,7 @@ static inline char *timenow();
                                         } while (0)
 #endif
 
-#define LOG_FMT             "@techdhaba %s | %-7s | %-15s | %s:%d | "
+#define LOG_FMT             "@login %s | %-7s | %-15s | %s:%d | "
 #define LOG_ARGS(LOG_TAG)   timenow(), LOG_TAG, _FILE, __FUNCTION__, __LINE__
 
 #define NEWLINE     "\n"
